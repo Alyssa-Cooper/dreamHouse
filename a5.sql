@@ -49,36 +49,36 @@ CREATE TABLE PROPERTY_t
 /* Alyssa code finished */
 
 CREATE TABLE Client_t
-        	(Client_No      VARCHAR   NOT NULL,
-	      	F_Name          VARCHAR,
-            I_Name          VARCHAR,
-			Tel_No			INT,
-			Pref_Type		VARCHAR,
-			Max_Rent		INT,
+        	(Client_No      VARCHAR(25)   NOT NULL,
+	      	F_Name          VARCHAR(25),
+            I_Name          VARCHAR(25),
+			Tel_No			INT(25),
+			Pref_Type		VARCHAR(25),
+			Max_Rent		INT(25),
 CONSTRAINT Client_PK PRIMARY KEY (Client_No));
 
 CREATE TABLE PrivateOwner_t
-            (Owner_No		VARCHAR NOT NULL,
-			F_Name			VARCHAR,
-			I_Name			VARCHAR,
-			Address			VARCHAR,
-			Tel_No			INT,
+            (Owner_No		VARCHAR(25) NOT NULL,
+			F_Name			VARCHAR(25),
+			I_Name			VARCHAR(25),
+			Address			VARCHAR(25),
+			Tel_No			INT(25),
 CONSTRAINT PrivateOwner_PK PRIMARY KEY (Owner_No));
 
 CREATE TABLE Viewing_t
-	      	(Client_No		VARCHAR NOT NULL,
-			Property_Id		VARCHAR,
-			View_Date		VARCHAR,
-			Comment			TEXT,
+	      	(Client_No		VARCHAR(25) NOT NULL,
+			Property_Id		VARCHAR(25),
+			View_Date		VARCHAR(25),
+			Comment			TEXT(25),
 CONSTRAINT Viewing_PK PRIMARY KEY (Client_No),
 CONSTRAINT Viewing_FK1 FOREIGN KEY (Property_Id) REFERENCES PROPERTY_t(Property_Id));
 
 CREATE TABLE Registration_t
-        	(Client_No		VARCHAR NOT NULL,
-			Branch_Id		VARCHAR,
-			Staff_No		VARCHAR,
-			Date_Joined		VARCHAR,
+        	(Client_No		VARCHAR(25) NOT NULL,
+			Branch_Id		VARCHAR(25),
+			Staff_No		VARCHAR(25),
+			Date_Joined		VARCHAR(25),
 CONSTRAINT Order_PK PRIMARY KEY (Client_No),
 CONSTRAINT Registration_FK1 FOREIGN KEY (Client_No) REFERENCES Client_t(Client_No),
 CONSTRAINT Registration_FK2 FOREIGN KEY (Branch_Id) REFERENCES BRANCH_t(Branch_Id),
-CONSTRAINT Registration_FK3 FOREIGN KEY (Staff_Id) REFERENCES STAFF_t(Staff_Id));
+/* CONSTRAINT Registration_FK3 FOREIGN KEY (Staff_Id) REFERENCES STAFF_t(Staff_Id)); */
